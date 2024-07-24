@@ -1,3 +1,4 @@
+import 'package:client/core/theme/app_pallete.dart';
 import 'package:client/features/auth/view/widgets/custom_form.dart';
 import 'package:flutter/material.dart';
 
@@ -14,13 +15,14 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: EdgeInsets.all(12.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              "SignUp!",
+            Text(
+              "SIGNUP",
               style: TextStyle(
+                color: Pallete.gradient2,
                 fontWeight: FontWeight.bold,
                 fontSize: 38,
               ),
@@ -38,7 +40,47 @@ class _SignUpState extends State<SignUp> {
             SizedBox(
               height: 15,
             ),
-            CustomForm(hinttext: "Password")
+            CustomForm(hinttext: "Password"),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7),
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Pallete.gradient1,
+                        Pallete.gradient2,
+                        Pallete.gradient3
+                      ])),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    fixedSize: Size(395, 55),
+                    backgroundColor: Pallete.transparentColor,
+                    shadowColor: Pallete.transparentColor),
+                child: Text(
+                  "SIGNUP",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            RichText(
+                text: TextSpan(
+                    text: "Already have an account? ",
+                    style: Theme.of(context).textTheme.titleMedium,
+                    children: [
+                  TextSpan(
+                      text: "SignUp",
+                      style: TextStyle(
+                          color: Pallete.gradient2,
+                          fontWeight: FontWeight.bold))
+                ]))
           ],
         ),
       ),
